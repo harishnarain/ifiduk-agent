@@ -18,4 +18,4 @@ def receive_messages():
             for msg in receiver:
                 print("Received: " + str(msg))
                 receiver.complete_message(msg)
-
+                return str(msg)
