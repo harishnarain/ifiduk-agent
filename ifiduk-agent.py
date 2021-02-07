@@ -2,9 +2,10 @@
 from dotenv import load_dotenv
 load_dotenv()
 import os
-from servicebus.servicebus import receive_messages
+from servicebus.servicebus import receive_messages, send_message
 import json
 from deploy.deploy import deploy_subscription
+from deploy.create_dns import create_dns
 
 # Methods
 
@@ -60,4 +61,17 @@ while True:
 
     # Deploy containers
     deploy_subscription(subscription_id, fe_image, fe_name, fe_env, be_image, be_name, be_env)
+
+    # Create DNS record
+    create_dns(name)
+
+    # Send confirmation
+    confirmation = {
+            "status": "Deployed",
+            "subscriptionId": subscription_id
+    }
+
+    confirmation_json = json.dumps(confirmation)
+
+    send_message(confirmation_json)
 
