@@ -21,17 +21,22 @@ dns_client = DnsManagementClient(
 
 def create_dns(name):
     dns_client.record_sets.create_or_update(
-            'ifiduk-dns',
-            'onifiduk.com',
+            "ifiduk-dns",
+            "onifiduk.com",
             name,
-            'A',
+            "CNAME",
             {
                 "ttl": 300,
-                "arecords": [
-                    {
-                        "ipv4_address": "58.162.222.96"
-                    }
-                ]
+                "cname_record": {
+                    "cname": "ifiduk-ch-01.australiasoutheast.cloudapp.azure.com"
+                }
             }
     )
 
+def delete_dns(name):
+    dns_client.record_sets.delete(
+        "ifiduk-dns",
+        "onifiduk.com",
+        name,
+        "CNAME"
+    )
