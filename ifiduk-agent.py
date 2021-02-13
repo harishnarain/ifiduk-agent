@@ -60,10 +60,10 @@ while True:
             be_env.append(list(env)[0] + "=" + env[list(env)[0]])
 
     # Deploy containers
-    deploy_subscription(subscription_id, fe_image, fe_name, fe_env, be_image, be_name, be_env)
+    #deploy_subscription(subscription_id, fe_image, fe_name, fe_env, be_image, be_name, be_env)
 
     # Create DNS record
-    create_dns(name)
+    #create_dns(name)
 
     # Send confirmation
     confirmation = {
