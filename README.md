@@ -47,6 +47,8 @@ This is the installation instructions for the IFIDUK Server Agent.
 3. Create a user in Azure AD that has roles scoped to manage DNS records
 
 4. Create a .env file and populate the following environment variables
+
+   ```
    SERVICEBUS_CONNECTION_STRING="Enter your Azure Service Bus connection string"
    SERVICEBUS_QUEUE_NAME="deployment"
    SERVICEBUS_QUEUE_NAME="deployment"
@@ -54,10 +56,14 @@ This is the installation instructions for the IFIDUK Server Agent.
    SUBSCRIPTION_ID="Enter your Azure subscription ID"
    AAD_DNS_USER="Enter the UPN of the user account you created in step 3"
    AAD_DNS_PWD="Enter the password for the user account you created in step 3"
+   ```
 
 5. Install the Docker engine
 
-6. Run the IFIDUK server agent by running python3 ifiduk-agent.py (This hasn't been daemonized. This is still under development)
+6. Run the IFIDUK server agent by running: (This hasn't been daemonized. This is still under development)
+   ```
+   python3 ifiduk-agent.py
+   ```
 
 ## Deployment or Deletion process
 
